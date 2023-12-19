@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SettingApp</string>
+    <string name="dark_mode">Modo Oscuro</string>
+    <string name="dark_mode_description">Activar modo oscuro en el dispositivo</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="bluetooth_description">Activar bluetooth en el dispositivo</string>
+</resources>
