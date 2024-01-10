@@ -16,7 +16,8 @@
         android:text="@string/app_configuration"
         android:gravity="center"
         android:textStyle="bold"
-        android:layout_marginBottom="8dp"/>
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/color_title"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,7 +42,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dark_mode"
                 android:textSize="14sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:textColor="@color/color_title"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -78,7 +80,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/bluetooth"
                 android:textSize="14sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:textColor="@color/color_title"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -120,7 +123,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/volumen"
                 android:textSize="14sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:textColor="@color/color_title"/>
 
             <com.google.android.material.slider.RangeSlider
                 android:id="@+id/sliderVolume"
@@ -155,7 +159,8 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:layout_weight="1"
-                android:layout_marginHorizontal="8dp"/>
+                android:layout_marginHorizontal="8dp"
+                android:textColor="@color/color_title"/>
 
         <Switch
             android:id="@+id/switchVibration"

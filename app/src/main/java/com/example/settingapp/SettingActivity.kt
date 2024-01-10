@@ -4,6 +4,9 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Switch
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
@@ -66,30 +69,30 @@ class SettingActivity : AppCompatActivity() {
         switchVibration = binding.switchVibration
         sliderVolume = binding.sliderVolume
 
-        //getAllPreferences()
         getAllSettingS()
 
         switchDarkMode.setOnCheckedChangeListener { _, value ->
+            if(value)
+                enableDarkMode()
+            else
+                disableDarkMode()
+            
             CoroutineScope(Dispatchers.IO).launch {
-                saveConfigSwitch(preferenceBluetooth, value)
+                saveConfigSwitch(preferenceDarkMode, value)
             }
-            //setConfigSwitch(binding.switchDarkMode, preferenceDarkMode)
         }
         switchBluetooth.setOnCheckedChangeListener { _, value ->
             CoroutineScope(Dispatchers.IO).launch {
                 saveConfigSwitch(preferenceBluetooth, value)
             }
-            //setConfigSwitch(binding.switchBluetooth, preferenceBluetooth)
         }
         switchVibration.setOnCheckedChangeListener { _, value ->
             CoroutineScope(Dispatchers.IO).launch {
-                saveConfigSwitch(preferenceBluetooth, value)
+                saveConfigSwitch(preferenceVibration, value)
             }
-            //setConfigSwitch(binding.switchVibration, preferenceVibration)
         }
 
         sliderVolume.addOnChangeListener { _, value, _ ->
-            //SharedPreferences.edit().putFloat(preferenceSonido, value).apply()
             CoroutineScope(Dispatchers.IO).launch{
                 saveVolumen(value.toInt())
             }
@@ -117,5 +120,15 @@ class SettingActivity : AppCompatActivity() {
                 volume = preferences[intPreferencesKey(preferenceVolumen)] ?: 50
             )
         }
+    }
+
+    fun enableDarkMode(){
+        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
+        delegate.applyDayNight()
+    }
+
+    fun disableDarkMode(){
+        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
+        delegate.applyDayNight()
     }
 }
